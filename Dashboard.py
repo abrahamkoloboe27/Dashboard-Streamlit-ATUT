@@ -65,8 +65,14 @@ if file is not None:
             plot_students_with_n_subjects(data, 8)
 
 
-
-            
+    with st.sidebar : 
+    st.markdown("""
+    ## Auteur
+    Abraham KOLOBOE
+    * Email : <abklb27@gmail.com>
+    * WhatsApp : +229 91 83 84 21
+    * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
+                """)
         else :
           data = df.loc[df["Pays"] == country]
           print_metric_card_number(data)
@@ -76,6 +82,14 @@ if file is not None:
           with col_2:
               plot_donut_chart_selected_tutorials(data, st.session_state.selected_tutorials)
 else : 
+    with st.sidebar : 
+        st.markdown("""
+        ## Auteur
+        Abraham KOLOBOE
+        * Email : <abklb27@gmail.com>
+        * WhatsApp : +229 91 83 84 21
+        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
+                    """)
     if st.sidebar.checkbox("Readme", True) :
         st.markdown("""   
     ## Description
