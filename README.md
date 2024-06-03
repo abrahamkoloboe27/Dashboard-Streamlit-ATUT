@@ -32,7 +32,8 @@ Dashboard-Streamlit-ATUT est une application Streamlit conçue pour ATUT (Africa
 
 ## Démo Vidéo
 Pour voir une démonstration de l'application, regardez cette vidéo :
-[![Watch the video](https://img.youtube.com/vi/8l90vuGmUhY/0.jpg)](https://www.youtube.com/watch?v=8l90vuGmUhY&ab_channel=AbrahamKoloboe)
+
+[![Regardez la vidéo démo ](https://img.youtube.com/vi/8l90vuGmUhY/0.jpg)](https://www.youtube.com/watch?v=8l90vuGmUhY&ab_channel=AbrahamKoloboe)
 
 
 Cette vidéo montre comment utiliser les différentes fonctionnalités de l'application, y compris la visualisation des données en temps réel et la personnalisation des tableaux de bord.
