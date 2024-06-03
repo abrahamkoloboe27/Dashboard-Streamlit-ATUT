@@ -40,7 +40,14 @@ if file is not None:
   st.session_state.n_tuto = st.sidebar.slider(label="Nombre tutoriels", min_value=1, max_value=8, value=st.session_state.n_tuto, step=1)
   st.session_state.selected_tutorials = st.sidebar.multiselect("Tutoriels sélectionnés",
                                                               ['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8'])
-
+  with st.sidebar : 
+        st.markdown("""
+        ## Auteur
+        Abraham KOLOBOE
+        * Email : <abklb27@gmail.com>
+        * WhatsApp : +229 91 83 84 21
+        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
+                    """)
   # Iterate over tabs and display data for each country
   for tab, country in zip(tabs, countries):
       with tab:
@@ -64,14 +71,6 @@ if file is not None:
           with col2:
             plot_students_with_n_subjects(data, 8)
 
-    with st.sidebar : 
-        st.markdown("""
-        ## Auteur
-        Abraham KOLOBOE
-        * Email : <abklb27@gmail.com>
-        * WhatsApp : +229 91 83 84 21
-        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
-                    """)
         else :
           data = df.loc[df["Pays"] == country]
           print_metric_card_number(data)
