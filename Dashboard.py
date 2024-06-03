@@ -21,7 +21,8 @@ st.set_page_config(
 )
 
 # Load data
-file = st.sidebar.file_uploader("Importer vos données ici", type=["xlsx","xls"])
+with st.expander("Importez les données", False) : 
+    file = st.file_uploader("Importer vos données ici", type=["xlsx","xls"])
 
 # Vérification si un fichier a été téléchargé
 if file is not None:
