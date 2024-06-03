@@ -76,4 +76,4 @@ if file is not None:
           with col_2:
               plot_donut_chart_selected_tutorials(data, st.session_state.selected_tutorials)
 else : 
-    st.image("img.png")
+    st.image("img.png",use_container_width=True)
