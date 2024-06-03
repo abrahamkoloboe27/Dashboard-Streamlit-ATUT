@@ -19,6 +19,7 @@ st.set_page_config(
     page_icon=":📊",
     layout="wide",
 )
+st.title(":blue[Tableau de bord ATUT 2024]",divider='rainbow')
 
 # Load data
 with st.expander("Importez les données", False) : 
