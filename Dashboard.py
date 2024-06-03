@@ -64,7 +64,6 @@ if file is not None:
           with col2:
             plot_students_with_n_subjects(data, 8)
 
-
     with st.sidebar : 
         st.markdown("""
         ## Auteur
