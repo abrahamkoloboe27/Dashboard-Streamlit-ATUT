@@ -66,13 +66,13 @@ if file is not None:
 
 
     with st.sidebar : 
-    st.markdown("""
-    ## Auteur
-    Abraham KOLOBOE
-    * Email : <abklb27@gmail.com>
-    * WhatsApp : +229 91 83 84 21
-    * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
-                """)
+        st.markdown("""
+        ## Auteur
+        Abraham KOLOBOE
+        * Email : <abklb27@gmail.com>
+        * WhatsApp : +229 91 83 84 21
+        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
+                    """)
         else :
           data = df.loc[df["Pays"] == country]
           print_metric_card_number(data)
