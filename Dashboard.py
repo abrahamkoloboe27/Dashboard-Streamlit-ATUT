@@ -75,3 +75,5 @@ if file is not None:
               plot_tutorial_validation_final(data)
           with col_2:
               plot_donut_chart_selected_tutorials(data, st.session_state.selected_tutorials)
+else : 
+    st.image("img.png")
