@@ -43,7 +43,7 @@ if file is not None:
   with st.sidebar : 
         st.markdown("""
         ## Auteur
-        Abraham KOLOBOE
+        :blue[Abraham KOLOBOE]
         * Email : <abklb27@gmail.com>
         * WhatsApp : +229 91 83 84 21
         * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
@@ -83,7 +83,7 @@ else :
     with st.sidebar : 
         st.markdown("""
         ## Auteur
-        Abraham KOLOBOE
+        :blue[Abraham KOLOBOE]
         * Email : <abklb27@gmail.com>
         * WhatsApp : +229 91 83 84 21
         * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
