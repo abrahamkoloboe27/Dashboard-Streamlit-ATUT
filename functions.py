@@ -190,28 +190,49 @@ def print_metric_card_number(data):
     if st.session_state.number_or_percentage == "Nombre":
         with col_1:
             st.metric("**:blue[Total]**", len(data))
+            with st.expander('Liste', False) : 
+                st.dataframe(data, use_container_width=True)
         with col_2:
+            df_ = students_with_min_tutorials(data, st.session_state.n_tuto)
             st.metric(f"**:blue[Ayant suivi au moins {st.session_state.n_tuto} tutoriel]**",
-                      value=len(students_with_min_tutorials(data, st.session_state.n_tuto)), delta_color="inverse")
+                      value=len(df_), delta_color="inverse")
+            with st.expander(f"**:blue[Liste]**", False) : 
+                st.dataframe(df_, use_container_width=True)
         with col_3:
+            df_ = students_with_min_tutorials(data, 8)
             st.metric("**:green[Ayant validé le TC]**",
-                      value=len(students_with_min_tutorials(data, 8)), delta_color="inverse")
+                      value=len(df_), delta_color="inverse")
+            with st.expander(f"**:green[Liste]**", False) : 
+                st.dataframe(df_, use_container_width=True)
         with col_4:
+            df_ = data.loc[data["Nombre de tutos validés"] != 8]
             st.metric("**:red[N'ayant pas validé le TC]**",
-                      value=len(data) - len(students_with_min_tutorials(data, 8)), delta_color="inverse")
+                      value=len(df_), delta_color="inverse")
+            with st.expander(f"**:red[Liste]**", False) : 
+                st.dataframe(df_, use_container_width=True)
     else:
         with col_1:
             st.metric("**:blue[Total]**", 100 * len(data) / len(data))
+            with st.expander('Liste', False) : 
+                st.dataframe(data, use_container_width=True)
         with col_2:
+            df_ = students_with_min_tutorials(data, st.session_state.n_tuto)
             st.metric(f"**:blue[Ayant suivi au moins {st.session_state.n_tuto} tutoriel]**",
-                      value=round(100 * len(students_with_min_tutorials(data, st.session_state.n_tuto)) / len(data), 2), delta_color="inverse")
+                      value=round(100 * len(df_) / len(data), 2), delta_color="inverse")
+            with st.expander(f"**:blue[Liste]**", False) : 
+                st.dataframe(df_, use_container_width=True)
         with col_3:
+            df_ = students_with_min_tutorials(data, 8)
             st.metric("**:green[Ayant validé le TC]**",
-                      value=round(100 * len(students_with_min_tutorials(data, 8)) / len(data), 2), delta_color="inverse")
+                      value=round(100 * len(df_) / len(data), 2), delta_color="inverse")
+            with st.expander(f"**:green[Liste]**", False) : 
+                st.dataframe(df_, use_container_width=True)
         with col_4:
+            df_ = data.loc[data["Nombre de tutos validés"] != 8]
             st.metric("**:red[N'ayant pas validé le TC]**",
                       value=round(100 * (len(data) - len(students_with_min_tutorials(data, 8))) / len(data), 2), delta_color="inverse")
-
+            with st.expander(f"**:red[Liste]**", False) : 
+                st.dataframe(df_, use_container_width=True)
 def plot_tutorial_validation(data):
     """
     Trace un graphique à barres montrant le nombre ou le pourcentage d'étudiants ayant validé ou non chaque tutoriel.
@@ -249,7 +270,9 @@ def plot_tutorial_validation(data):
                      color_discrete_map={'Validé': 'blue', 'Non Validé': 'red'})
 
         # Affiche le graphique
-        st.plotly_chart(fig)
+        st.plotly_chart(fig, use_container_width = True)
+        with st.expander("""**:blue[Table]**"""): 
+            st.dataframe(tutorial_counts, use_container_width = True)
 
     else:
         # Crée un DataFrame pour stocker le pourcentage de tutoriels validés et non validés
@@ -285,7 +308,9 @@ def plot_tutorial_validation(data):
                      color_discrete_map={'Validé': 'blue', 'Non Validé': 'red'})
 
         # Affiche le graphique
-        st.plotly_chart(fig)
+        st.plotly_chart(fig, use_container_width = True)
+        with st.expander("""**:blue[Table]**"""): 
+            st.dataframe(tutorial_percentages, use_container_width = True)
 
 def plot_tutorial_validation_final(data):
     """
@@ -336,7 +361,15 @@ def plot_donut_chart_selected_tutorials(data, tutorials):
     fig.update_layout(title=f"Tutorials: {', '.join(tutorials)}")
 
     # Affiche le graphique
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width = True)
+    with st.expander("""**:red[Liste]**""") :
+        c_1, c_2 = st.columns(2) 
+        with c_1 : 
+            st.write("""**:green[Validé]**""")
+            st.dataframe(selected_data)
+        with c_2 : 
+            st.write("""**:red[Non Validé]**""")
+            st.dataframe(data.loc[~data.index.isin(selected_data.index)])
 
 def get_students_with_n_subjects(data, n):
     """
