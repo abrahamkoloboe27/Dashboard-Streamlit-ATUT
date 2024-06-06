@@ -24,17 +24,19 @@ st.title(":blue[Tableau de bord ATUT 2024] 📊🚀")
 # Load data
 if st.sidebar.toggle("Générer des données aléartoires"):
     file = 1
-    df, df_ = generate_data()
-    if st.sidebar.checkbox("Affricher les données", False) : 
-        with st.expander("Données crées", False) : 
-            st.dataframe(df_)
 else :
     with st.expander("Importez les données", False) : 
         file = st.file_uploader("Importer vos données ici", type=["xlsx","xls"])
 
 # Vérification si un fichier a été téléchargé
 if file is not None:
-  df = load_data(file)
+  if file = 1 : 
+      df, df_ = generate_data()
+        if st.sidebar.checkbox("Affricher les données", False) : 
+            with st.expander("Données crées", False) : 
+                st.dataframe(df_)
+  else : 
+      df = load_data(file)
 
   # Create tabs for each country
   countries_tab = ["Tous les pays 🇧🇯🇸🇳🇨🇮🇧🇫🇹🇬🇬🇦","BENIN 🇧🇯", "SENEGAL 🇸🇳", "COTE IVOIRE 🇨🇮", "BURKINA FASO 🇧🇫", "TOGO 🇹🇬", "GABON 🇬🇦"]
