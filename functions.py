@@ -75,7 +75,7 @@ def generate_data():
         data["Nom"] = data["Nom"].str.upper()
         data[['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']] = list(zip(*responses))
 
-        data_no_proceed = data.copy()
+        
         # Preprocess the data
         data['Pays'] = sheet_name.split('_')[1]
         data_no_proceed['Pays'] = data['Pays']
@@ -85,9 +85,14 @@ def generate_data():
 
         data['Nombre de tutos validés'] = data[['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']].sum(axis=1)
         data_frames.append(data.loc[data["Nom"] != "Example"])
-
+    data_frames = pd.concat(data_frames)
+    
+    data_no_proceed[['Nom', 'Prénoms']] = data_frames[['Nom', 'Prénoms']]
+    for t in tuto:
+            data_no_proceed[t] = data_frames[t].apply(lambda x: "OUI" if x==1 else "NON")
+    data_no_proceed['Nombre de tutos validés'] = data_frames['Nombre de tutos validés']
     # Concatenate the data frames
-    return pd.concat(data_frames), data_no_proceed
+    return data_frames , data_no_proceed
 
 @st.cache_resource
 def load_data(file_path):
