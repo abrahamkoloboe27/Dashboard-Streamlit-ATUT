@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import random
 
 # Initialize session state variables
 if "number_or_percentage" not in st.session_state:
@@ -12,6 +13,70 @@ if "only_for" not in st.session_state:
     st.session_state.only_for = True
 if "selected_tutorials" not in st.session_state:
     st.session_state.selected_tutorials = ['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']
+
+
+@st.cache_resource
+def generate_data():
+    """
+    Generates an Excel file with multiple sheets, each containing a dataset of random names and responses.
+
+    Parameters:
+    file_path (str): The path where the generated Excel file will be saved.
+
+    The sheets and their columns are as follows:
+    - Sheets: "TC _ BENIN", "TC_SENEGAL", "TC_COTE IVOIRE", "TC_BURKINA FASO", "TC_TOGO", "TC_GABON"
+    - Columns: ['Nom', 'Prénoms', 'Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']
+
+    The values in 'Tuto 1' to 'Tuto 8' columns are randomly assigned as "OUI" or "NON".
+    The number of rows in each sheet is a random number between 100 and 500.
+    """
+    sheet_names = ["TC _ BENIN", "TC_SENEGAL", "TC_COTE IVOIRE", "TC_BURKINA FASO", "TC_TOGO", "TC_GABON"]
+    # Define the list of first names and last names for each country
+    first_names = {
+        "TC _ BENIN": ["Amina", "Koffi", "Akouvi", "Ayélé", "Azizou", "Komi", "Adjovi", "Amivi", "Akou", "Dossou", "Gbénoukpo", "Sètondji", "Yèmiclétor", "Houéto", "Chénavi", "Agnima", "Ezin", "Dosou", "Nononsi", "Damé", "Adjè", "Kossi", "Awo", "Akotchomè", "Kossivi", "Adanlé", "Fidégnon", "Gbedo"],
+        "TC_SENEGAL": ["Aboubacar", "Aissatou", "Amadou", "Fatou", "Mariama", "Abdoulaye", "Adama", "Aliou", "Mame", "Sokhna", "Cheikh", "Ousmane", "Saliou", "Ndèye", "Pape", "Thierno", "Souleymane", "Ibrahima", "Bineta", "Awa", "Babacar", "Moussa", "Mamadou", "Djibril", "Lamine", "Seynabou", "Fadel", "Khady"],
+        "TC_COTE IVOIRE": ["Adjoua", "Kouadio", "Yao", "Awa", "Adama", "Koffi", "Koudou", "Kouakou", "Brou", "Ahoua", "Kassi", "Kouamé", "Diarrassouba", "Koffi", "Loukou", "Affoué", "Akissi", "Anzian", "Adjoumani", "Atsé", "Blé", "Anoh", "Yao", "Beugré", "Akré", "Kadjo", "Amon", "Yao"],
+        "TC_BURKINA FASO": ["Aboubacar", "Ali", "Issa", "Salifou", "Aminata", "Fatoumata", "Moumouni", "Mariam", "Inoussa", "Oumarou", "Halima", "Mahamoudou", "Yacouba", "Oumou", "Souleymane", "Adama", "Fati", "Bakary", "Kadiatou", "Ibrahim", "Zakaria", "Samira", "Boureima", "Assitan", "Binta", "Mamadou", "Koudougou", "Mamadou"],
+        "TC_TOGO": ["Akouvi", "Ayélé", "Kossi", "Komi", "Afia", "Mawuli", "Yawo", "Mawuena", "Sena", "Yawo", "Afi", "Kodjo", "Amenyo", "Edem", "Akpene", "Mawuli", "Mawuko", "Abra", "Yao", "Sena", "Kofi", "Yawa", "Efo", "Abla", "Dzifa", "Mawulolo", "Eyram", "Sena"],
+        "TC_GABON": ["Aimée", "Ange", "Annie", "Aurélie", "Chantal", "Christelle", "Clarisse", "Danielle", "Dany", "Dorothée", "Elodie", "Evelyne", "Fabienne", "Françoise", "Gisèle", "Irène", "Jocelyne", "Léonie", "Line", "Lucie", "Madeleine", "Marcelle", "Mireille", "Muriel", "Nadège", "Paulette", "Solange", "Sylvie", "Victorine"]
+    }
+
+    last_names = {
+        "TC _ BENIN": ["Adjakou", "Agbanrin", "Agblévi", "Agossou", "Ahomadégbé", "Amoussou", "Assogba", "Ayivi", "Dossou", "Favi", "Gbédigui", "Houndégla", "Kpadé", "Ligan", "Nonhlanhla", "Tchagouni", "Yayi", "Zinsou", "Boko", "Glele", "Houngbédji", "Adjagba", "Gaba", "Kouassi", "Akpo", "Hodonou", "Hounsou"],
+        "TC_SENEGAL": ["Ndiaye", "Diop", "Fall", "Seck", "Faye", "Sow", "Diallo", "Sarr", "Gaye", "Sene", "Ndour", "Gueye", "Ba", "Sy", "Kane", "Thiam", "Diouf", "Ndoye", "Ndiaga", "Sene", "Toure", "Thiam", "Diagne", "Mbaye", "Mbengue", "Camara", "Sall", "Wade", "Coly"],
+        "TC_COTE IVOIRE": ["Konan", "Kouassi", "Yao", "Kouadio", "Adou", "Akissi", "Koffi", "Aka", "Assi", "Affi", "Ble", "Amani", "Ehouman", "Aké", "Gnoan", "Dago", "Djoman", "Ebo", "Ouegnin", "Bamba", "Kamagaté", "Loua", "Adou", "Kone", "Bini", "Yao", "Atsé", "Kouassi"],
+        "TC_BURKINA FASO": ["Traore", "Ouédraogo", "Sawadogo", "Koulibaly", "Kaboré", "Ilboudo", "Diarra", "Ouattara", "Sanou", "Ouedraogo", "Savadogo", "Kabore", "Zango", "Simporé", "Sorgho", "Barro", "Bationo", "Tamboura", "Zongo", "Bagre", "Kinda", "Kientega", "Pare", "Thiombiano", "Zoungrana", "Zida", "Congo", "Bamogo"],
+        "TC_TOGO": ["Adjo", "Agbénou", "Agbévi", "Akakpo", "Anani", "Atsou", "Awudi", "Ayivi", "Bokon", "Dodji", "Dosseh", "Edoh", "Ekoué", "Eklu", "Hounkpati", "Kossi", "Kudjo", "Lompo", "Nyekplé", "Nyuiadzi", "Okou", "Sagbo", "Toffoun", "Wokou", "Yao", "Yèkou", "Zankli", "Dzifa", "Ahiave"],
+        "TC_GABON": ["Abessolo", "Akue", "Aworet", "Bikoro", "Boulingui", "Bouzobeyok", "Boussamba", "Boussougou", "Doukaga", "Ebang", "Ekomie", "Essone", "Mabika", "Makaya", "Mandji", "Mba", "Moutiet", "Ndinga", "Nguema", "Ngari", "Nkoghe", "Nzang", "Obiang", "Onanga", "Oye", "Owondo", "Oyono", "Tsiba", "Yombi"]
+    }
+    # Generate data for each sheet
+    data_frames = []
+    for sheet_name in sheet_names:
+        # Generate random number of rows between 100 and 500
+        num_rows = random.randint(250, 800)
+
+        # Generate random names
+        names = [(random.choice(first_names[sheet_name]), random.choice(last_names[sheet_name])) for _ in range(num_rows)]
+
+        # Generate random responses for 'Tuto 1' to 'Tuto 8' columns with a higher probability of "OUI"
+        responses = [random.choices(["OUI", "NON"], weights=[0.7, 0.3], k=8) for _ in range(num_rows)]
+
+        # Create a DataFrame for the sheet
+        data = pd.DataFrame(names, columns=['Prénoms', 'Nom'])
+        data["Nom"] = data["Nom"].str.upper()
+        data[['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']] = responses
+        data_no_proceed = data.copy()
+        # Preprocess the data
+        data['Pays'] = sheet_name.split('_')[1]
+        tuto = ['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']
+        for t in tuto:
+            data[t] = data[t].apply(lambda x: 1 if str(x).strip().upper() == 'OUI' else 0)
+
+        data['Nombre de tutos validés'] = data[['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']].sum(axis=1)
+        data_frames.append(data.loc[data["Nom"] != "Example"])
+
+    # Concatenate the data frames
+    return pd.concat(data_frames), data_no_proceed
 
 @st.cache_resource
 def load_data(file_path):
