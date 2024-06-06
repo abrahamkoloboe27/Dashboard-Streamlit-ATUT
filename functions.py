@@ -58,8 +58,12 @@ def generate_data():
         # Generate random names
         names = [(random.choice(first_names[sheet_name]), random.choice(last_names[sheet_name])) for _ in range(num_rows)]
 
-        # Generate random responses for 'Tuto 1' to 'Tuto 8' columns with a higher probability of "OUI"
-        responses = [random.choices(["OUI", "NON"], weights=[0.7, 0.3], k=8) for _ in range(num_rows)]
+        # Generate random responses for 'Tuto 1' to 'Tuto 8' columns with a decreasing probability of "OUI"
+        responses = []
+        for i in range(8):
+            weight_oui = 0.9 - (i * 0.1)
+            weight_non = 1 - weight_oui
+            responses.append(random.choices(["OUI", "NON"], weights=[weight_oui, weight_non], k=num_rows))
 
         # Create a DataFrame for the sheet
         data = pd.DataFrame(names, columns=['Prénoms', 'Nom'])
