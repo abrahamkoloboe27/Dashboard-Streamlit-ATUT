@@ -61,14 +61,14 @@ def generate_data():
         # Generate random responses for 'Tuto 1' to 'Tuto 8' columns with a decreasing probability of "OUI"
         responses = []
         for i in range(8):
-            weight_oui = 0.9 - (i * 0.1)
+            weight_oui = 0.9 - (i * 0.05)
             weight_non = 1 - weight_oui
             responses.append(random.choices(["OUI", "NON"], weights=[weight_oui, weight_non], k=num_rows))
 
         # Create a DataFrame for the sheet
         data = pd.DataFrame(names, columns=['Prénoms', 'Nom'])
         data["Nom"] = data["Nom"].str.upper()
-        data[['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']] = responses
+        data[['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']] = list(zip(*responses))
         data_no_proceed = data.copy()
         # Preprocess the data
         data['Pays'] = sheet_name.split('_')[1]
