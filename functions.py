@@ -14,7 +14,12 @@ if "only_for" not in st.session_state:
 if "selected_tutorials" not in st.session_state:
     st.session_state.selected_tutorials = ['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']
 
-
+@st.cache_resource
+def highlight_oui(val):
+    if val == 'OUI':
+        return 'background-color: yellow'
+    else:
+        return ''
 @st.cache_resource
 def generate_data():
     """
