@@ -22,8 +22,15 @@ st.set_page_config(
 st.title(":blue[Tableau de bord ATUT 2024] 📊🚀")
 
 # Load data
-with st.expander("Importez les données", False) : 
-    file = st.file_uploader("Importer vos données ici", type=["xlsx","xls"])
+if st.sidebar.toggle("Générer des données aléartoires"):
+    file = 1
+    df, df_ = generate_dataset()
+    if st.sidebar.checkbox("Affricher les données", False) : 
+        with st.expander("Données crées", False) : 
+            st.dataframe(df_)
+else :
+    with st.expander("Importez les données", False) : 
+        file = st.file_uploader("Importer vos données ici", type=["xlsx","xls"])
 
 # Vérification si un fichier a été téléchargé
 if file is not None:
