@@ -24,7 +24,7 @@ st.title(":blue[Tableau de bord ATUT 2024] 📊🚀")
 # Load data
 if st.sidebar.toggle("Générer des données aléartoires"):
     file = 1
-    df, df_ = generate_dataset()
+    df, df_ = generate_data()
     if st.sidebar.checkbox("Affricher les données", False) : 
         with st.expander("Données crées", False) : 
             st.dataframe(df_)
