@@ -46,7 +46,7 @@ if file is not None:
         :blue[Abraham KOLOBOE]
         * Email : <abklb27@gmail.com>
         * WhatsApp : +229 91 83 84 21
-        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
+        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-zacharie-koloboe-data-science-ia-generative-llms-machine-learning)
                     """)
   # Iterate over tabs and display data for each country
   for tab, country in zip(tabs, countries):
