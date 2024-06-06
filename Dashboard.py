@@ -34,7 +34,7 @@ if file is not None:
       df, df_ = generate_data()
       if st.sidebar.checkbox("Affricher les données", False) : 
           with st.expander("Données crées", False) : 
-               st.dataframe(df_style.applymap(highlight_oui))
+               st.dataframe(df_.style.applymap(highlight_oui))
   else : 
       df = load_data(file)
 
