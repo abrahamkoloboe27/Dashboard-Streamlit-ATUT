@@ -36,7 +36,7 @@ if file is not None:
 
   # Add sidebar widgets
   st.session_state.number_or_percentage = st.sidebar.radio("Nombre/Pourcentage", ["Nombre", "Pourcentage"], horizontal=True)
-  st.session_state.only_for = st.sidebar.checkbox("Tous les étudiants", st.session_state.only_for)
+  st.session_state.only_for = st.sidebar.toggle("Tous les étudiants", st.session_state.only_for)
   st.session_state.n_tuto = st.sidebar.slider(label="Nombre tutoriels", min_value=1, max_value=8, value=st.session_state.n_tuto, step=1)
   st.session_state.selected_tutorials = st.sidebar.multiselect("Tutoriels sélectionnés",
                                                               ['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8'])
@@ -88,7 +88,7 @@ else :
         * WhatsApp : +229 91 83 84 21
         * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
                     """)
-    if st.sidebar.checkbox("Readme", True) :
+    if st.sidebar.toggle("Readme", True) :
         st.markdown("""   
     ## Description
     Dashboard-Streamlit-ATUT est une application Streamlit conçue pour ATUT (African Trade Unionist Training) afin de visualiser et analyser diverses métriques de données. Ce projet offre des tableaux de bord interactifs, facilitant une prise de décision éclairée et des insights basés sur les données.
