@@ -404,6 +404,7 @@ def plot_students_with_n_subjects(data, n):
     """
     # Get the number of students who have validated n subjects by country
     students_with_n_subjects = get_students_with_n_subjects(data, n)
+    
     if n == 8 : 
       # Create a barplot using Plotly
       fig = px.bar(students_with_n_subjects, x='Pays', y='Nombre d\'étudiants',
@@ -414,6 +415,8 @@ def plot_students_with_n_subjects(data, n):
       fig = px.bar(students_with_n_subjects, x='Pays', y='Nombre d\'étudiants',
                   labels={'Pays': 'Pays', 'Nombre d\'étudiants': f'Nombre d\'étudiants ayant validé au moins {n} matières'},
                   title=f'Nombre d\'étudiants ayant validé {n} matières par pays')
-
+    
     # Show the plot
     st.plotly_chart(fig)
+    with st.expander("""**:blue[Liste des étudiants]**""") :
+        st.dataframe(students_with_n_subjects)
