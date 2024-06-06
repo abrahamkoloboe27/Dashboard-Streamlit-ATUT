@@ -30,7 +30,7 @@ else :
 
 # Vérification si un fichier a été téléchargé
 if file is not None:
-  if file = 1 : 
+  if file == 1 : 
       df, df_ = generate_data()
         if st.sidebar.checkbox("Affricher les données", False) : 
             with st.expander("Données crées", False) : 
