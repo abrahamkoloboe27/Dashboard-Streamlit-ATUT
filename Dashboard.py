@@ -86,7 +86,7 @@ else :
         :blue[Abraham KOLOBOE]
         * Email : <abklb27@gmail.com>
         * WhatsApp : +229 91 83 84 21
-        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-koloboe-630683263)
+        * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-zacharie-koloboe-data-science-ia-generative-llms-machine-learning)
                     """)
     if st.sidebar.toggle("Readme", True) :
         st.markdown("""   
