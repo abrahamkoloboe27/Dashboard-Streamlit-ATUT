@@ -1,7 +1,8 @@
 # Dashboard-Streamlit-ATUT
 
 ### 🚀 Découvrez le Dashboard Africa Tech Up Tour 🌍
-
+[LinkedIn](https://www.linkedin.com/posts/abraham-zacharie-koloboe-data-science-ia-generative-llms-machine-learning_ia-dashboard-reporting-activity-7204880851837276160--9ed?utm_source=share&utm_medium=member_desktop)
+[Youtube](https://youtu.be/WMeOZAHusGQ?si=Afel_VQ4Tctrsws8)
 
 🎉 **Nouvelle Innovation** : Suivez et analysez facilement les progrès des étudiants africains en Data et IA avec notre tout nouveau dashboard interactif ! 📊
 
@@ -74,7 +75,7 @@ streamlit run Dashboard.py
 ## Démo Vidéo
 Pour voir une démonstration de l'application, regardez cette vidéo :
 
-[![Regardez la vidéo démo 🎥 ](https://img.youtube.com/vi/8l90vuGmUhY/0.jpg)](https://www.youtube.com/watch?v=8l90vuGmUhY&ab_channel=AbrahamKoloboe)
+[![Regardez la vidéo démo 🎥 ]]([https://www.youtube.com/watch?v=8l90vuGmUhY&ab_channel=AbrahamKoloboe](https://youtu.be/WMeOZAHusGQ?si=Afel_VQ4Tctrsws8))
 
 
 Cette vidéo montre comment utiliser les différentes fonctionnalités de l'application, y compris la visualisation des données en temps réel et la personnalisation des tableaux de bord.
