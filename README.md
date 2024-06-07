@@ -2,6 +2,7 @@
 
 ### 🚀 Découvrez le Dashboard Africa Tech Up Tour 🌍
 [LinkedIn](https://www.linkedin.com/posts/abraham-zacharie-koloboe-data-science-ia-generative-llms-machine-learning_ia-dashboard-reporting-activity-7204880851837276160--9ed?utm_source=share&utm_medium=member_desktop)
+
 [Youtube](https://youtu.be/WMeOZAHusGQ?si=Afel_VQ4Tctrsws8)
 
 🎉 **Nouvelle Innovation** : Suivez et analysez facilement les progrès des étudiants africains en Data et IA avec notre tout nouveau dashboard interactif ! 📊
