@@ -8,7 +8,7 @@
 
 📚 Le **Africa Tech Up Tour** est une initiative exceptionnelle qui vise à former les étudiants africains dans les domaines de la data et de l'intelligence artificielle. La formation est divisée en deux parties : un **tronc commun** et des **spécialités**. Les étudiants valident des tutoriels et renseignent leurs progrès dans un fichier Google Sheets. Notre dashboard utilise ce fichier pour fournir une visualisation claire et interactive des données, essentielle pour les organisateurs. 🧠💻
 
-**:blue[Valeur ajoutée]**
+**Valeur ajoutée**
         
 🌟 **Visualisation des Progrès** : Affiche les statistiques des tutoriels suivis et validés par les étudiants.
 
@@ -20,7 +20,7 @@
 
 Ces outils sont essentiels pour les organisateurs afin de suivre l'engagement des étudiants et ajuster les formations en conséquence. 📈
 
-**:red[Outils Utilisés]** 🔧 
+**Outils Utilisés** 🔧 
 
 Pour la construction de ce dashboard, plusieurs outils et technologies ont été utilisés :
 - **Python** 🐍 : Langage de programmation principal.
@@ -30,16 +30,16 @@ Pour la construction de ce dashboard, plusieurs outils et technologies ont été
 - **ChatGPT** 🤖 : Génération de noms aléatoires pour les datasets synthétiques.
 
 
-📢 **:red[Tester le Dashboard]** : 
+📢 **Tester le Dashboard** : 
         
 Vous avez la possibilité de tester le dashboard grâce à une fonction qui permet de générer des données synthétiques à partir de listes de noms et prénoms créées avec ChatGPT. Ces données sont totalement aléatoires, changeant à chaque utilisation, y compris le nombre d'étudiants, les noms, et les proportions des tutoriels validés. Cela permet à ceux qui n'ont pas les données de l'Africa Tech Up Tour de tester le dashboard et de nous donner leur avis. 🎲
 
 
-📢 **:blue[Appel à Contribution]** : 
+📢 **Appel à Contribution]** : 
 
 Vous pouvez consulter le code source sur [GitHub](https://github.com/abrahamkoloboe27/Dashboard-Streamlit-ATUT). Pour les étudiants de l'Africa Tech Up Tour et tous ceux qui s'initient à GitHub, c'est une excellente opportunité pour montrer votre maîtrise de GitHub ! Ajoutez votre nom au dataset généré aléatoirement, créez une nouvelle branche, faites vos modifications et soumettez une pull request pour devenir contributeur de ce projet open source. ✍️
 
-**:blue[Analyse des Données]** 📊 :
+**Analyse des Données** 📊 :
 
         
 Nous vous encourageons également à utiliser le dashboard pour faire une analyse des données. Identifiez les indicateurs clés, expliquez les informations que les données révèlent, et discutez des décisions que l'on pourrait prendre en fonction de ces informations. Un excellent exercice de storytelling pour démontrer vos compétences en analyse de données et en prise de décision basée sur les données.

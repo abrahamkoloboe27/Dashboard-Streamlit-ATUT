@@ -167,7 +167,7 @@ else :
             
             Vous pouvez consulter le code source sur [GitHub](https://github.com/abrahamkoloboe27/Dashboard-Streamlit-ATUT). Pour les étudiants de l'Africa Tech Up Tour et tous ceux qui s'initient à GitHub, c'est une excellente opportunité pour montrer votre maîtrise de GitHub ! Ajoutez votre nom au dataset généré aléatoirement, créez une nouvelle branche, faites vos modifications et soumettez une pull request pour devenir contributeur de ce projet open source. ✍️
 
-            📊**:blue[Analyse des Données]**  :
+            📊 **:blue[Analyse des Données]**  :
 
                     
             Nous vous encourageons également à utiliser le dashboard pour faire une analyse des données. Identifiez les indicateurs clés, expliquez les informations que les données révèlent, et discutez des décisions que l'on pourrait prendre en fonction de ces informations. Un excellent exercice de storytelling pour démontrer vos compétences en analyse de données et en prise de décision basée sur les données.
@@ -219,4 +219,4 @@ else :
             Merci de votre soutien ! 🙏
         """)
     else : 
-        st.video("démo.webm")
+        st.video("démo.mp4")
