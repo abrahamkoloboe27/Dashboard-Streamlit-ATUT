@@ -14,12 +14,8 @@ if "only_for" not in st.session_state:
 if "selected_tutorials" not in st.session_state:
     st.session_state.selected_tutorials = ['Tuto 1', 'Tuto 2', 'Tuto 3', 'Tuto 4', 'Tuto 5', 'Tuto 6', 'Tuto 7', 'Tuto 8']
 
-@st.cache_resource
-def highlight_oui(val):
-    if val == 'OUI':
-        return 'background-color: yellow'
-    else:
-        return ''
+    
+
 @st.cache_resource
 def generate_data():
     """
@@ -371,7 +367,7 @@ def plot_donut_chart_selected_tutorials(data, tutorials):
             st.write("""**:red[Non Validé]**""")
             st.dataframe(data.loc[~data.index.isin(selected_data.index)])
 
-def get_students_with_n_subjects(data, n):
+def get_students_with_n_subjects(data, n, df ):
     """
     Returns the number of students who have validated a given number of subjects by country.
 
@@ -387,14 +383,23 @@ def get_students_with_n_subjects(data, n):
 
     # Group the data by country and count the number of students in each group
     grouped_data = filtered_data.groupby('Pays').size().reset_index(name='Nombre d\'étudiants')
+    percentages = []
+    
+    i=0
+    #st.write(grouped_data.iloc[2]["Pays"])
     for pays in grouped_data["Pays"].unique() : 
-      grouped_data["Pourcentage d'étudiants"] = 100 * grouped_data['Nombre d\'étudiants'] / len(get_data_country(data,pays))
+      #st.write(pays, len(get_data_country(df,pays)),  )
+      n_ = grouped_data.loc[grouped_data["Pays"] == pays]['Nombre d\'étudiants']
+      #st.write(n_.iloc[0])
+      percentages.append( 100 * n_.iloc[0] / len(get_data_country(df,pays)))
+    #st.dataframe(pd.DataFrame(percentages))
+    grouped_data['Pourcentage d\'étudiants']=percentages
     #st.write(grouped_data)
     return grouped_data
 
 
 
-def plot_students_with_n_subjects(data, n):
+def plot_students_with_n_subjects(data, n, df ):
     """
     Creates a barplot using Plotly to represent the number of students who have validated a given number of subjects by country.
 
@@ -403,7 +408,7 @@ def plot_students_with_n_subjects(data, n):
         n (int): The number of subjects.
     """
     # Get the number of students who have validated n subjects by country
-    students_with_n_subjects = get_students_with_n_subjects(data, n)
+    students_with_n_subjects = get_students_with_n_subjects(data, n, df=df)
     
     if n == 8 : 
       # Create a barplot using Plotly

@@ -1,39 +1,80 @@
 # Dashboard-Streamlit-ATUT
 
-## Description
-Dashboard-Streamlit-ATUT est une application Streamlit conçue pour ATUT (African Trade Unionist Training) afin de visualiser et analyser diverses métriques de données. Ce projet offre des tableaux de bord interactifs, facilitant une prise de décision éclairée et des insights basés sur les données.
+### 🚀 Découvrez le Dashboard Africa Tech Up Tour 🌍
 
-## Fonctionnalités
-- Visualisation de données interactive
-- Interface conviviale
-- Mises à jour des données en temps réel
-- Tableaux de bord personnalisables
+
+🎉 **Nouvelle Innovation** : Suivez et analysez facilement les progrès des étudiants africains en Data et IA avec notre tout nouveau dashboard interactif ! 📊
+
+
+📚 Le **Africa Tech Up Tour** est une initiative exceptionnelle qui vise à former les étudiants africains dans les domaines de la data et de l'intelligence artificielle. La formation est divisée en deux parties : un **tronc commun** et des **spécialités**. Les étudiants valident des tutoriels et renseignent leurs progrès dans un fichier Google Sheets. Notre dashboard utilise ce fichier pour fournir une visualisation claire et interactive des données, essentielle pour les organisateurs. 🧠💻
+
+**:blue[Valeur ajoutée]**
+        
+🌟 **Visualisation des Progrès** : Affiche les statistiques des tutoriels suivis et validés par les étudiants.
+
+🌟 **Filtrage Avancé** : Permet de filtrer les données par nombre minimum de tutoriels suivis et de se concentrer sur les étudiants actifs.
+
+🌟 **Options d'Affichage** : Visualisez les données en normes ou en pourcentages pour une meilleure interprétation.
+
+🌟 **Données Synthétiques** : Génération de datasets factices pour tester et comprendre les fonctionnalités sans accès au fichier réel.
+
+Ces outils sont essentiels pour les organisateurs afin de suivre l'engagement des étudiants et ajuster les formations en conséquence. 📈
+
+**:red[Outils Utilisés]** 🔧 
+
+Pour la construction de ce dashboard, plusieurs outils et technologies ont été utilisés :
+- **Python** 🐍 : Langage de programmation principal.
+- **Streamlit** 🌐 : Framework pour créer des applications web interactives.
+- **Pandas** 🐼 : Manipulation et analyse des données.
+- **Plotly Express** 📊 : Visualisation interactive des données.
+- **ChatGPT** 🤖 : Génération de noms aléatoires pour les datasets synthétiques.
+
+
+📢 **:red[Tester le Dashboard]** : 
+        
+Vous avez la possibilité de tester le dashboard grâce à une fonction qui permet de générer des données synthétiques à partir de listes de noms et prénoms créées avec ChatGPT. Ces données sont totalement aléatoires, changeant à chaque utilisation, y compris le nombre d'étudiants, les noms, et les proportions des tutoriels validés. Cela permet à ceux qui n'ont pas les données de l'Africa Tech Up Tour de tester le dashboard et de nous donner leur avis. 🎲
+
+
+📢 **:blue[Appel à Contribution]** : 
+
+Vous pouvez consulter le code source sur [GitHub](https://github.com/abrahamkoloboe27/Dashboard-Streamlit-ATUT). Pour les étudiants de l'Africa Tech Up Tour et tous ceux qui s'initient à GitHub, c'est une excellente opportunité pour montrer votre maîtrise de GitHub ! Ajoutez votre nom au dataset généré aléatoirement, créez une nouvelle branche, faites vos modifications et soumettez une pull request pour devenir contributeur de ce projet open source. ✍️
+
+**:blue[Analyse des Données]** 📊 :
+
+        
+Nous vous encourageons également à utiliser le dashboard pour faire une analyse des données. Identifiez les indicateurs clés, expliquez les informations que les données révèlent, et discutez des décisions que l'on pourrait prendre en fonction de ces informations. Un excellent exercice de storytelling pour démontrer vos compétences en analyse de données et en prise de décision basée sur les données.
+
+N'hésitez pas à me donner votre avis sur le dashboard, comment nous pourrions l'améliorer et le tester. 🔍
+
+
+
+Merci de votre soutien ! 🙏
 
 ## Installation
 1. Clonez le dépôt :
-   ```bash
-   git clone https://github.com/abrahamkoloboe27/Dashboard-Streamlit-ATUT.git
-   ```
+```bash
+git clone https://github.com/abrahamkoloboe27/Dashboard-Streamlit-ATUT.git
+```
 2. Accédez au répertoire du projet :
-   ```bash
-   cd Dashboard-Streamlit-ATUT
-   ```
+```bash
+cd Dashboard-Streamlit-ATUT
+```
 3. Installez les dépendances requises :
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 
 ## Utilisation
 1. Lancez l'application Streamlit :
-   ```bash
-   streamlit run Dashboard.py
-   ```
+```bash
+streamlit run Dashboard.py
+```
 2. Ouvrez votre navigateur web et allez à `http://localhost:8501` pour accéder au tableau de bord.
 
 ## Démo Vidéo
 Pour voir une démonstration de l'application, regardez cette vidéo :
 
-[![Regardez la vidéo démo ](https://img.youtube.com/vi/8l90vuGmUhY/0.jpg)](https://www.youtube.com/watch?v=8l90vuGmUhY&ab_channel=AbrahamKoloboe)
+[![Regardez la vidéo démo 🎥 ](https://img.youtube.com/vi/8l90vuGmUhY/0.jpg)](https://www.youtube.com/watch?v=8l90vuGmUhY&ab_channel=AbrahamKoloboe)
 
 
 Cette vidéo montre comment utiliser les différentes fonctionnalités de l'application, y compris la visualisation des données en temps réel et la personnalisation des tableaux de bord.
@@ -47,5 +88,4 @@ Pour toute question ou problème, veuillez contacter Abraham Koloboe à [abklb27
 ## Licence
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 ```
-
-Pour intégrer la vidéo de démonstration, vous pouvez utiliser un service d'hébergement vidéo comme YouTube ou Vimeo, puis insérer le lien de la vidéo dans la section "Démo Vidéo". Cela permettra aux utilisateurs de voir facilement comment fonctionne l'application et d'explorer ses fonctionnalités.
+Merci de votre soutien ! 🙏
